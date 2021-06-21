@@ -1,7 +1,10 @@
 config:
-  azure-native:clientId: 63dc38d2-c361-447f-82b6-23610f3cd4e3
+  azure-native:clientId:
+    secure: AAABAJLXq4vLLrJ1L7cEDDd5Hdnz2jUtHx7HAzewoo0CUgP7g/OAkJ6Tc7GQDQ7HHFXtcwF4ORVcx1RVOE9NEK21o54=
   azure-native:clientSecret:
     secure: AAABABebOGe56kJqFGo6iAJbn3huD4yrngjewcWCIOexs4P0wYT7Ue37HMvfxZXvAmDm8/MpuaNjQhMTqpjAgB0E
   azure-native:location: CentralUS
-  azure-native:subscriptionId: 32b9cb2e-69be-4040-80a6-02cd6b2cc5ec
-  azure-native:tenantId: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
+  azure-native:subscriptionId:
+    secure: AAABAEgNKrTHhfrQnRzUYEbt/OW/y3fUgH63C5+UTEpLo0wDgl/pEm2eE1x+2jEiORrNquf7b4DinNU2sNYwqloEm8g=
+  azure-native:tenantId:
+    secure: AAABAIoNQtlX68unilvqgd2a5zq+WmSbWx31ZIbtUscQIPCediwwzCecQOrFtQfBvZOKr2byZVQpzatDn1K/0WpzkaA=
