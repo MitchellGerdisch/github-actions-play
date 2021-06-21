@@ -1,0 +1,3 @@
+name: github-actions-play
+runtime: nodejs
+description: A minimal Azure Native TypeScript Pulumi program
