@@ -1,7 +1,7 @@
-name: Pulumi
+name: Manually triggered Pulumi workflow
 
 on:
-  push:
+  workflow_dispatch:
     branches:
       - master
 jobs:
