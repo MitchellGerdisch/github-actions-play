@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  preview:
+  up:
     name: Update
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
       - uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: MitchGerdisch/dev
+          stack-name: dev
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
