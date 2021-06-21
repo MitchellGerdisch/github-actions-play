@@ -1,4 +1,4 @@
-name: Manually triggered Pulumi workflow
+name: Update - Manual Trigger
 
 on:
   workflow_dispatch:

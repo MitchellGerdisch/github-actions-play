@@ -1,4 +1,4 @@
-name: Manually triggered Pulumi workflow
+name: Destroy - Manual Trigger
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   up:
-    name: Update
+    name: Destroy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
