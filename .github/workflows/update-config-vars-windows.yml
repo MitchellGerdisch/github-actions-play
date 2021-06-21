@@ -1,4 +1,4 @@
-name: Update:Config Vars - Manual Trigger
+name: Update:Windows - Config Vars - Manual Trigger
 
 on:
   workflow_dispatch:
