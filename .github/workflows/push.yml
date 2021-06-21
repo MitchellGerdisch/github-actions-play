@@ -19,7 +19,7 @@ jobs:
         working-directory: pulumi-project
       - uses: pulumi/actions@v3
         with:
-          command: up --non-interactive
+          command: "up --non-interactive"
           stack-name: dev
           work-dir: pulumi-project
         env:
