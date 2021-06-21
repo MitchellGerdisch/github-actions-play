@@ -1,4 +1,6 @@
 name: Pulumi
+
+on:
   push:
     branches:
       - master
