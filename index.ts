@@ -6,6 +6,7 @@ import * as storage from "@pulumi/azure-native/storage";
 
 // Create an Azure Resource Group
 const resourceGroup = new resources.ResourceGroup("resourceGroup");
+export const rgId = resourceGroup.id
 
 // Create an Azure resource (Storage Account)
 const storageAccount = new storage.StorageAccount("sa", {
