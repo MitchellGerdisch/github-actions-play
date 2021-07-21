@@ -1,11 +1,9 @@
 name: Preview with PR Comment - Manual Trigger
 
 on:
-  workflow_dispatch:
-    branches:
-      - main
+  - pull_request
 jobs:
-  up:
+  preview:
     name: Preview
     runs-on: ubuntu-latest
     steps:
