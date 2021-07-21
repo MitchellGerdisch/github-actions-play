@@ -17,7 +17,7 @@ jobs:
           command: preview
           stack-name: dev
           comment-on-pr: true
-          github-token: ${{env.GITHUB_TOKEN}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
