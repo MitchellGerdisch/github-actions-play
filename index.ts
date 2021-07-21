@@ -9,12 +9,12 @@ const resourceGroup = new resources.ResourceGroup("resourceGroup");
 export const rgId = resourceGroup.id
 
 // Create an Azure resource (Storage Account)
-// const storageAccount = new storage.StorageAccount("sa", {
-//     resourceGroupName: resourceGroup.name,
-//     sku: {
-//         name: storage.SkuName.Standard_LRS,
-//     },
-//     kind: storage.Kind.StorageV2,
-// });
-// export const saId = storageAccount.id
+const storageAccount = new storage.StorageAccount("sa", {
+    resourceGroupName: resourceGroup.name,
+    sku: {
+        name: storage.SkuName.Standard_LRS,
+    },
+    kind: storage.Kind.StorageV2,
+});
+export const saId = storageAccount.id
 
