@@ -4,10 +4,7 @@ on:
   workflow_dispatch:
     branches:
       - main
-  push:
-    branches:
-      - dev
-      - main
+
 jobs:
   up:
     name: Destroy
