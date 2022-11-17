@@ -8,3 +8,5 @@ const randomPet = new random.RandomPet("actionsPet", {
     length: petNameLength
 })
 
+export const petName = randomPet.id;
+
