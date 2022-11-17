@@ -9,6 +9,9 @@ on:
       - dev
       - main
 
+env:
+  BRANCHNAME: ${{ github.GITHUB_REF_NAME }}
+
 jobs:
   up:
     name: Update
@@ -16,15 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          echo "GITHUB_REF_NAME: $BRANCHNAME"
+          echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
           npm install
       - uses: pulumi/actions@v3
         with:
           command: update
-          stack-name: $BRANCHNAME
+          stack-name: ${{env.BRANCHNAME}}
           upsert: true
         env:
-          BRANCHNAME: ${{ github.GITHUB_REF_NAME }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
