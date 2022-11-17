@@ -1,23 +1,31 @@
-name: Update - Manual Trigger
+name: Update on Push
 
 on:
   workflow_dispatch:
     branches:
       - main
+  push:
+    branches:
+      - dev
+      - main
+
+env:
+  BRANCHNAME: ${{ github.REF_NAME }}
+
 jobs:
   up:
     name: Update
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-      - run: npm install
+      - run: |
+          echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
+          npm install
       - uses: pulumi/actions@v3
         with:
           command: update
-          stack-name: dev
+          stack-name: ${{env.BRANCHNAME}}
+          upsert: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
