@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  BRANCHNAME: ${{ github.GITHUB_REF_NAME }}
+  BRANCHNAME: ${{ github.REF_NAME }}
 
 jobs:
   up:
