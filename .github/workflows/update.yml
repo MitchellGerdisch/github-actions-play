@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-        - echo "GITHUB_REF_NAME: ${{ github.GITHUB_REF_NAME }}"
-        - npm install
+          echo "GITHUB_REF_NAME: ${{ github.GITHUB_REF_NAME }}"
+          npm install
       - uses: pulumi/actions@v3
         with:
           command: update
