@@ -31,6 +31,8 @@ jobs:
           command: update
           stack-name: ${{env.BRANCHNAME}}
           upsert: true
+          ### See issue: https://github.com/pulumi/actions/issues/828
+          ### Multiple policy packs provided does not currently work.
           policyPacks: 
             ./policies/pet-policies
             ./policies/pet-policies-2
