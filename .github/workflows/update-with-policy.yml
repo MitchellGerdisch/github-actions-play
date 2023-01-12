@@ -21,6 +21,9 @@ jobs:
       - run: |
           echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
           npm install
+          cd policies/pet-policies
+          npm install
+          cd ../..
       - uses: pulumi/actions@v3
         with:
           command: update
