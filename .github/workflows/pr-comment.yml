@@ -12,6 +12,7 @@ jobs:
       - uses: pulumi/actions@v3
         with:
           command: preview
+          work-dir: ./src
           stack-name: main
           comment-on-pr: true
           upsert: true

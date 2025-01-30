@@ -49,6 +49,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: update
+          work-dir: ./src
           stack-name: ${{env.BRANCHNAME}}
           upsert: true
         env:
