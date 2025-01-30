@@ -1,4 +1,4 @@
-name: Update on Push
+name: Test and Update on Push
 
 on:
   workflow_dispatch:
@@ -13,21 +13,28 @@ env:
   BRANCHNAME: ${{ github.REF_NAME }}
 
 jobs:
-  up:
-    name: Update
+  unit-test:
     runs-on: ubuntu-latest
     steps:
       - name: check out repo
-        - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: install packages
-        - run: |
+        run: |
+          npm install
+      - name: run unit tests
+        run: |
+          npm run unittest
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out repo
+        uses: actions/checkout@v2
+      - name: install packages
+        run: |
             echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
             npm install
-      - name: run unit tests
-        - run: |
-          npm run unittest
       - name: pulumi up the stack
-        - uses: pulumi/actions@v3
+        uses: pulumi/actions@v3
           with:
             command: update
             stack-name: ${{env.BRANCHNAME}}
