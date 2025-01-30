@@ -1,12 +1,3 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as random from "@pulumi/random";
+import * as infra from "./src/infra";
 
-const config = new pulumi.Config();
-const petNameLength = config.getNumber("petNameLength") ?? 5
-
-const randomPet = new random.RandomPet("actionsPet", {
-    length: petNameLength
-})
-
-export const petName = randomPet.id;
-
+export const petName = infra.randomPet.id;

@@ -1,4 +1,4 @@
-name: Update on Push
+name: Test and Update on Push
 
 on:
   workflow_dispatch:
@@ -13,22 +13,32 @@ env:
   BRANCHNAME: ${{ github.REF_NAME }}
 
 jobs:
-  up:
-    name: Update
+  unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
+      - name: check out repo
+        uses: actions/checkout@v2
+      - name: install packages
+        run: |
           npm install
-      - uses: pulumi/actions@v3
+      - name: run unit tests
+        run: |
+          npm run unittest
+  update-stack:
+    runs-on: ubuntu-latest
+    needs: [unit-test]
+    steps:
+      - name: check out repo
+        uses: actions/checkout@v2
+      - name: install packages
+        run: |
+            echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
+            npm install
+      - name: pulumi up the stack
+        uses: pulumi/actions@v3
         with:
           command: update
           stack-name: ${{env.BRANCHNAME}}
           upsert: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
