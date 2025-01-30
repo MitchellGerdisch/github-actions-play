@@ -24,7 +24,7 @@ jobs:
       - name: run unit tests
         run: |
           npm run unittest
-  update:
+  update-stack:
     runs-on: ubuntu-latest
     needs: [unit-test]
     steps:
