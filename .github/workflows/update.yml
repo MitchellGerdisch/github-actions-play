@@ -21,6 +21,8 @@ jobs:
       - run: |
           echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
           npm install
+      - unittest: |
+          npm run unittest
       - uses: pulumi/actions@v3
         with:
           command: update
