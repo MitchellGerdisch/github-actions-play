@@ -35,9 +35,9 @@ jobs:
             npm install
       - name: pulumi up the stack
         uses: pulumi/actions@v3
-          with:
-            command: update
-            stack-name: ${{env.BRANCHNAME}}
-            upsert: true
-          env:
-            PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+        with:
+          command: update
+          stack-name: ${{env.BRANCHNAME}}
+          upsert: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
