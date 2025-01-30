@@ -26,6 +26,7 @@ jobs:
           npm run unittest
   update:
     runs-on: ubuntu-latest
+    needs: [unit-test]
     steps:
       - name: check out repo
         uses: actions/checkout@v2
