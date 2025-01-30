@@ -32,9 +32,9 @@ jobs:
       - name: install packages
         run: |
           npm install
-      - name: run unit tests
+      - name: run integration tests
         run: |
-          npm run unittest
+          npm run inttest
   update-stack:
     runs-on: ubuntu-latest
     needs: [unit-test, integration-test]
