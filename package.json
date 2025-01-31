@@ -4,7 +4,8 @@
         "@types/node": "^10.0.0"
     },
     "scripts": {
-        "unittest": "mocha --require ts-node/register 'tests/unit-tests/*.ts'"
+        "unittest": "mocha --require ts-node/register 'tests/unit-tests/*.ts'",
+        "inttest": "cd tests/integration-tests; go test ."
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.47.0",

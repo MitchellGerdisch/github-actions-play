@@ -2,4 +2,4 @@ name: github-actions-play
 runtime: nodejs
 description: A minimal Azure Native TypeScript Pulumi program
 config:
-  github-actions-play:petNameLength: 4 
+  github-actions-play:petNameLength: 5 

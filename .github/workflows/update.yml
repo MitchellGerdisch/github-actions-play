@@ -10,6 +10,8 @@ on:
       - main
 
 env:
+  # Set branch name environment variable based on the "GITHUB_REF_NAME" which is the basic branch name (e.g. dev or main)
+  # This is used later on for integration testing and the pulumi update to run the stack with the same name as the branch.
   BRANCHNAME: ${{ github.REF_NAME }}
 
 jobs:
@@ -24,7 +26,7 @@ jobs:
       - name: run unit tests
         run: |
           npm run unittest
-  update-stack:
+  integration-test:
     runs-on: ubuntu-latest
     needs: [unit-test]
     steps:
@@ -32,12 +34,26 @@ jobs:
         uses: actions/checkout@v2
       - name: install packages
         run: |
-            echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
+          echo "BRANCHNAME: ${{env.BRANCHNAME}}"
+          npm install
+      - name: run integration tests
+        run: |
+          npm run inttest
+  update-stack:
+    runs-on: ubuntu-latest
+    needs: [unit-test, integration-test]
+    steps:
+      - name: check out repo
+        uses: actions/checkout@v2
+      - name: install packages
+        run: |
+            echo "BRANCHNAME: ${{env.BRANCHNAME}}"
             npm install
       - name: pulumi up the stack
         uses: pulumi/actions@v3
         with:
           command: update
+          work-dir: ./src
           stack-name: ${{env.BRANCHNAME}}
           upsert: true
         env:

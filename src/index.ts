@@ -1,3 +1,3 @@
-import * as infra from "./src/infra";
+import * as infra from "./infra";
 
 export const petName = infra.randomPet.id;
