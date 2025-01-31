@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  BRANCHNAME: ${{ github.REF_NAME }}
+  BRANCHNAME: ${{ github.GITHUB_REF_NAME }}
 
 jobs:
   unit-test:
@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v2
       - name: install packages
         run: |
-          echo "GITHUB_REF_NAME: ${{env.GITHUB_REF_NAME}}"
+          echo "BRANCHNAME: ${{env.BRANCHNAME}}"
           npm install
       - name: run integration tests
         run: |
@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v2
       - name: install packages
         run: |
-            echo "GITHUB_REF_NAME: ${{env.BRANCHNAME}}"
+            echo "BRANCHNAME: ${{env.BRANCHNAME}}"
             npm install
       - name: pulumi up the stack
         uses: pulumi/actions@v3
