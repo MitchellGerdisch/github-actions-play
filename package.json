@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.47.0",
+        "@pulumi/random": "^4.8.2",
         "@types/mocha": "^10.0.10",
         "mocha": "^11.1.0",
         "ts-node": "^10.9.2"
