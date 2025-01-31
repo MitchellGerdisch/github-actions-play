@@ -6,7 +6,9 @@ const petNameLength = config.getNumber("petNameLength") ?? 4
 
 export const randomPet = new random.RandomPet("actionsPet", {
     length: petNameLength,
-    separator: "="
+    separator: "&",
 })
+
+
 
 

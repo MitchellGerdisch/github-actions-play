@@ -26,6 +26,10 @@ describe("Infrastructure", function() {
 
   describe("#petname", function() {
       // (check 1): Petname must not consist of more than 4 words.
+      // In terms of unit testing, this only catches the case where the property is explicitly set to a value greater than 4, or
+      // if the default is set to a value greater than 4.
+      // It does not catch the case Pulumi config value is set to greater than 4.
+      // That's where the integration tests come in since they actually stand up the stack.
       it("must not consist of more than 4 words", function(done) {
         pulumi.all([infra.randomPet.urn, infra.randomPet.length]).apply(([urn, length]) => {
             if (!length || length > 4) {
