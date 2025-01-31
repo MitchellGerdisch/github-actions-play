@@ -29,7 +29,6 @@ func TestRandomPet(t *testing.T) {
 					petNameLength := int(res.Outputs["length"].(float64))
 					maxLength := 4
 					assert.GreaterOrEqual(t, maxLength, petNameLength, fmt.Sprintf("Pet name length is %d which is greater than the max allowed, %d.", petNameLength, maxLength))
-
 				}
 			}
 		},
