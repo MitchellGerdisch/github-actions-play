@@ -10,7 +10,9 @@ on:
       - main
 
 env:
-  BRANCHNAME: ${{ github.GITHUB_REF_NAME }}
+  # Set branch name environment variable based on the "GITHUB_REF_NAME" which is the basic branch name (e.g. dev or main)
+  # This is used later on for integration testing and the pulumi update to run the stack with the same name as the branch.
+  BRANCHNAME: ${{ github.REF_NAME }}
 
 jobs:
   unit-test:
